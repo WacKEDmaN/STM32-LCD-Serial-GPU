@@ -238,9 +238,15 @@ void mandelbrotParser(char **values, int valueCount)
   }
   else
     {
+      unsigned long t = millis();
+      unsigned long mandeltime = t;
       Serial.println("mandelbrotParser executing...");
       drawMandelbrot();  // ^mandelbrot$
       Serial.println("mandelbrot: Done!");
+      Serial.print(F("Mandelbrot Time = "));
+      mandeltime = (millis() - t)/1000;
+      Serial.print(mandeltime);
+      Serial.println(F(" seconds"));
     }
 }
 
@@ -283,8 +289,6 @@ void setup() {
 }
 
 void loop() {
-  unsigned long start;
-  unsigned long finish;
 
   while(Serial.available() > 0)
   {
