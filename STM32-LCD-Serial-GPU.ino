@@ -1,6 +1,6 @@
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <MCUFRIEND_kbv.h>  // LCD Sheild library slightly modified utility\mcufriend_shield.h
-#include <DynamicCommandParser.h> //
+#include <DynamicCommandParser.h> 
 #include "mandelbrot.h"
 
 // Pinouts TFT STM32bluepill
@@ -73,7 +73,7 @@ void fillScreenParser(char **values, int valueCount)
     {
     int color = String(values[1]).toInt();
     Serial.println("fillRectParser values: color:" + String(color));
-    tft.fillScreen(color);
+    tft.fillScreen(color);  // ^fillScreen,1024$
     Serial.println("fillScreen: Done!");
     }
   }
@@ -179,7 +179,7 @@ void invertDisplayParser(char **values, int valueCount)
     {
     bool inv = String(values[1]).toInt();
     Serial.println("invertDisplayParser values: inv: " + String(inv));
-    tft.invertDisplay(inv);
+    tft.invertDisplay(inv);  //  ^invertDisplay,1$
     Serial.println("invertDisplay: Done!");
     }
   }
@@ -202,7 +202,7 @@ void drawRoundRectParser(char **values, int valueCount)
     int radius = String(values[5]).toInt();
     int color = String(values[6]).toInt();
     Serial.println("drawRoundRectParser values: x0:" + String(x0) + ", y0:" + String(y0) + ", w:" + String(w) + ", h:" + String(h) + ", radius:" + String(radius) + ", color:" + String(color));
-    tft.drawRoundRect(x0, y0, w, h, radius, color); //^drawRoundRect,10,10,300,200,20,65535$
+    tft.drawRoundRect(x0, y0, w, h, radius, color); //  ^drawRoundRect,10,10,300,200,20,65535$
     Serial.println("drawRoundRect: Done!");
    }
   }
@@ -225,7 +225,7 @@ void fillRoundRectParser(char **values, int valueCount)
     int radius = String(values[5]).toInt();
     int color = String(values[6]).toInt();
     Serial.println("fillRoundRectParser values: x0:" + String(x0) + ", y0:" + String(y0) + ", w:" + String(w) + ", h:" + String(h) + ", radius:" + String(radius) + ", color:" + String(color));
-    tft.fillRoundRect(x0, y0, w, h, radius, color); //^fillRoundRect,10,10,300,200,20,65535$
+    tft.fillRoundRect(x0, y0, w, h, radius, color); //  ^fillRoundRect,10,10,300,200,20,65535$
     Serial.println("fillRoundRect: Done!");
    }
   }
@@ -239,7 +239,7 @@ void mandelbrotParser(char **values, int valueCount)
   else
     {
       Serial.println("mandelbrotParser executing...");
-      drawMandelbrot();
+      drawMandelbrot();  // ^mandelbrot$
       Serial.println("mandelbrot: Done!");
     }
 }
@@ -247,7 +247,7 @@ void mandelbrotParser(char **values, int valueCount)
 void setup() {
   Serial.begin(115200);  
   tft.reset();
-  Serial.println("Touch-Thing!");
+  Serial.println("STM32-LCD-Serial-GPU!\n");
   uint16_t identifier = tft.readID();  
   Serial.print(F("tft.readID = 0x"));
   Serial.println(identifier, HEX);  // 9341
@@ -257,7 +257,7 @@ void setup() {
   tft.setRotation(1); 
   tft.fillScreen(0);
   
-  Serial.println("Color values:");
+  Serial.println("\nColor values:");
   Serial.println("Black: 0");
   Serial.println("Blue: 16");
   Serial.println("Red: 63488");
