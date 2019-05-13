@@ -39,10 +39,10 @@ void mandelbrotParser(char **values, int valueCount)
   // Parser for drawRect,x0,y0,w,h,decimal_color
 void drawRectParser(char **values, int valueCount)
   {
-   if(valueCount >6) {
+   if(valueCount > 6) {
     Serial.println("Error: drawRectParser: too many variables!");
    }
-   if(valueCount <5) {
+   else if(valueCount < 6) {
     Serial.println("Error: drawRectParser: not enough variables!");
    }
    else
@@ -61,10 +61,10 @@ void drawRectParser(char **values, int valueCount)
   // Parser for fillRect,x0,y0,w,h,decimal_color
 void fillRectParser(char **values, int valueCount)
   {
-   if(valueCount >6) {
+   if(valueCount > 6) {
     Serial.println("Error: fillRectParser: too many variables!");
    }
-   if(valueCount <5) {
+   else if(valueCount < 6) {
     Serial.println("Error: fillRectParser: not enough variables!");
    }
    else
@@ -98,10 +98,10 @@ void fillScreenParser(char **values, int valueCount)
   // Parser for drawCircle,x0,y0,radius,color
 void drawCircleParser(char **values, int valueCount)
   {
-   if(valueCount >5) {
+   if(valueCount > 5) {
     Serial.println("Error: drawCircleParser: too many variables!");
    }
-   if(valueCount <4) {
+   else if(valueCount < 5) {
     Serial.println("Error: drawCircleParser: not enough variables!");
    }
    else    
@@ -119,10 +119,10 @@ void drawCircleParser(char **values, int valueCount)
   // Parser for fillCircle,x0,y0,radius,color
 void fillCircleParser(char **values, int valueCount)
   {
-   if(valueCount >5) {
+   if(valueCount > 5) {
     Serial.println("Error: fillCircleParser: too many variables!");
    }
-   if(valueCount <4) {
+   else if(valueCount < 5) {
     Serial.println("Error: fillCircleParser: not enough variables!");
    }
    else
@@ -140,10 +140,10 @@ void fillCircleParser(char **values, int valueCount)
   // Parser for drawTriangle,x0,y0,x1,y1,x2,y2,color
 void drawTriangleParser(char **values, int valueCount)
   {
-   if(valueCount >8) {
+   if(valueCount > 8) {
     Serial.println("Error: drawTriangleParser: too many variables!");
    }
-   if(valueCount <7) {
+   else if(valueCount < 8) {
     Serial.println("Error: drawTriangleParser: not enough variables!");
    }
    else
@@ -164,10 +164,10 @@ void drawTriangleParser(char **values, int valueCount)
     // Parser for fillTriangle,x0,y0,x1,y1,x2,y2,color
 void fillTriangleParser(char **values, int valueCount)
   {
-   if(valueCount >8) {
+   if(valueCount > 8) {
     Serial.println("Error: fillTriangleParser: too many variables!");
    }
-   if(valueCount <7) {
+   else if(valueCount < 8) {
     Serial.println("Error: fillTriangleParser: not enough variables!");
    }
    else
@@ -190,7 +190,7 @@ void invertDisplayParser(char **values, int valueCount)
   {
    if(valueCount > 2)
     Serial.println("Error: invertDisplayParser: too many variables!");
-   if(valueCount < 2)
+   else if(valueCount < 2)
     Serial.println("Error: invertDisplayParser: not enough variables!");
    else
     {
@@ -204,10 +204,10 @@ void invertDisplayParser(char **values, int valueCount)
   // Parser for drawRoundRect,x0,y0,w,h,radius,decimal_color
 void drawRoundRectParser(char **values, int valueCount)
   {
-   if(valueCount >7) {
+   if(valueCount > 7) {
     Serial.println("Error: drawRoundRectParser: too many variables!");
    }
-   if(valueCount <6) {
+   else if(valueCount < 7) {
     Serial.println("Error: drawRoundRectParser: not enough variables!");
    }
    else
@@ -227,10 +227,10 @@ void drawRoundRectParser(char **values, int valueCount)
   // Parser for fillRoundRect,x0,y0,w,h,radius,decimal_color
 void fillRoundRectParser(char **values, int valueCount)
   {
-   if(valueCount >7) {
+   if(valueCount > 7) {
     Serial.println("Error: fillRoundRectParser: too many variables!");
    }
-   if(valueCount <6) {
+   else if(valueCount < 7) {
     Serial.println("Error: fillRoundRectParser: not enough variables!");
    }
    else
@@ -250,10 +250,10 @@ void fillRoundRectParser(char **values, int valueCount)
   // Parser for setTextColor,color,background_color
 void setTextColorParser(char **values, int valueCount)
   {
-    if(valueCount > 3) {
+    if (valueCount > 3) {
       Serial.println("Error: setTextColorParser: too many variables");
     }
-    if (valueCount < 3) {
+    else if (valueCount < 3) {
       Serial.println("Error: setTextColorParser: not enough variables");
     }
     else 
@@ -302,7 +302,7 @@ void setCursorParser(char **values, int valueCount)
     if(valueCount > 3) {
       Serial.println("Error: setCursorParser too many variables!");
     }
-    if(valueCount < 3) {
+    else if(valueCount < 3) {
     Serial.println("Error: setCursorParser: not enough variables!");
     }
     else
@@ -351,7 +351,7 @@ void drawPixelParser(char **values, int valueCount)
    if(valueCount > 4) {
     Serial.println("Error: drawPixelParser: too many variables!");
    }
-   if(valueCount < 4) {
+   else if(valueCount < 4) {
     Serial.println("Error: drawPixelParser: not enough variables!");
    }
    else
@@ -371,7 +371,7 @@ void readPixelParser(char **values, int valueCount)
    if(valueCount > 3) {
     Serial.println("Error: readPixelParser: too many variables!");
    }
-   if(valueCount < 3) {
+   else if(valueCount < 3) {
     Serial.println("Error: readPixelParser: not enough variables!");
    }
    else
@@ -391,7 +391,7 @@ void drawLineParser(char **values, int valueCount)
    if(valueCount > 6) {
     Serial.println("Error: drawLineParser: too many variables!");
    }
-   if(valueCount < 6) {
+   else if(valueCount < 6) {
     Serial.println("Error: drawLineParser: not enough variables!");
    }
    else
