@@ -1,6 +1,8 @@
 # STM32-LCD-Serial-GPU
 STM32 bluepill with 8bit parallel shield, serial parsing. Basic GPU to use with another MCU, or serial console
 
+Compatable with MCUFriend commands.
+
 ## Requires:
 
 MCUFriend_kbv library with modified utility\mcufriend_shield.h 
@@ -12,42 +14,42 @@ https://github.com/WacKEDmaN/DynamicCommandParser
 
 ## Commands implemented:
 
-mandelbrot
+^mandelbrot$
 
-drawRect
+^drawRect,x0,y0,h,w,color$   x0,y0=top left, h=height,w=width, all color values must be added as decimal values
 
-fillRect
+^fillRect,x0,y0,h,w,color$
 
-fillScreen
+^fillScreen,color$
 
-drawCircle
+^drawCircle,x0,y0,radius,color$   x0,y0=centre 
 
-fillCircle
+^fillCircle,x0,y0,radius,color$
 
-drawTriangle
+^drawTriangle,x0,y0,1,y1,x2,y2,color$  x0,y0=corner 1  x1,y1=corner 2  x2,y2=corner 3
 
-fillTriangle
+^fillTriangle,x0,y0,1,y1,x2,y2,color$
 
-invertDisplay
+^invertDisplay,0-1$  
 
-drawRoundRect
+^drawRoundRect,x0,y0,h,w,radius,color$  
 
-fillRoundRect
+^fillRoundRect,x0,y0,h,w,radius,color$
 
-setTextColor
+^setTextColor,color,bgcolor$   bgcolor must be added
 
-print
+^print,text$  text in a string w/o ',' string ends at $
 
-println
+^println,text$ 
 
-setCursor
+^setCursor,col,row$  
 
-setTextSize
+^setTextSize,size$
 
-setRotation
+^setRotation,0-3$
 
-drawPixel
+^drawPixel,x0,y0,color$
 
-readPixel
+^readPixel,x0,y0$  returns color value
 
-drawLine
+^drawLine,x0,y0,x1,y1,color$ 
